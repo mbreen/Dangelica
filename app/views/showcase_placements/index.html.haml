@@ -1,0 +1,25 @@
+%h1 Listing showcase_placements
+
+%table
+  %tr
+    %th Start date
+    %th End date
+    %th Showcase
+    %th Jewelry item
+    %th
+    %th
+    %th
+
+  - @showcase_placements.each do |showcase_placement|
+    %tr
+      %td= showcase_placement.start_date
+      %td= showcase_placement.end_date
+      %td= showcase_placement.showcase
+      %td= showcase_placement.jewelry_item
+      %td= link_to 'Show', showcase_placement
+      %td= link_to 'Edit', edit_showcase_placement_path(showcase_placement)
+      %td= link_to 'Destroy', showcase_placement, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Showcase placement', new_showcase_placement_path

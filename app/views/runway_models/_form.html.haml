@@ -1,0 +1,13 @@
+= form_for @runway_model do |f|
+  -if @runway_model.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@runway_model.errors.count, "error")} prohibited this runway_model from being saved:"
+      %ul
+        - @runway_model.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .actions
+    = f.submit 'Save'

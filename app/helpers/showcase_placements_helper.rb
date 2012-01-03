@@ -1,0 +1,2 @@
+module ShowcasePlacementsHelper
+end

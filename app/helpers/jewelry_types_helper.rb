@@ -1,0 +1,2 @@
+module JewelryTypesHelper
+end

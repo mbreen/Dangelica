@@ -1,0 +1,19 @@
+= form_for @model_placement do |f|
+  -if @model_placement.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@model_placement.errors.count, "error")} prohibited this model_placement from being saved:"
+      %ul
+        - @model_placement.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :event
+    = f.text_field :event
+  .field
+    = f.label :runway_model
+    = f.text_field :runway_model
+  .field
+    = f.label :jewelry_item
+    = f.text_field :jewelry_item
+  .actions
+    = f.submit 'Save'

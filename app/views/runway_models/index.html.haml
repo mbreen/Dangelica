@@ -1,0 +1,19 @@
+%h1 Listing runway_models
+
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @runway_models.each do |runway_model|
+    %tr
+      %td= runway_model.name
+      %td= link_to 'Show', runway_model
+      %td= link_to 'Edit', edit_runway_model_path(runway_model)
+      %td= link_to 'Destroy', runway_model, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Runway model', new_runway_model_path

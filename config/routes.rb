@@ -1,4 +1,32 @@
 Dangelica::Application.routes.draw do
+  resources :showcase_placements
+
+  resources :model_placements
+
+  resources :jewelry_items
+
+  resources :jewelry_types
+
+  resources :clasps
+
+  resources :string_types
+
+  resources :filler_beads
+
+  resources :crystals
+
+  resources :beads
+
+  resources :stones
+
+  resources :showcases
+
+  resources :collections
+
+  resources :runway_models
+
+  resources :events
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

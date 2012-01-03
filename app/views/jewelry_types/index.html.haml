@@ -1,0 +1,19 @@
+%h1 Listing jewelry_types
+
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @jewelry_types.each do |jewelry_type|
+    %tr
+      %td= jewelry_type.name
+      %td= link_to 'Show', jewelry_type
+      %td= link_to 'Edit', edit_jewelry_type_path(jewelry_type)
+      %td= link_to 'Destroy', jewelry_type, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Jewelry type', new_jewelry_type_path

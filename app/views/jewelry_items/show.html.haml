@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @jewelry_item.name
+%p
+  %b Size:
+  = @jewelry_item.size
+%p
+  %b Earring type:
+  = @jewelry_item.earring_type
+%p
+  %b Jewelry type:
+  = @jewelry_item.jewelry_type
+%p
+  %b Price:
+  = @jewelry_item.price
+%p
+  %b String type:
+  = @jewelry_item.string_type
+%p
+  %b Clasp:
+  = @jewelry_item.clasp
+
+= link_to 'Edit', edit_jewelry_item_path(@jewelry_item)
+\|
+= link_to 'Back', jewelry_items_path

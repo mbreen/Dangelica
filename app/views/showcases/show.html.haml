@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @showcase.name
+%p
+  %b Num positions:
+  = @showcase.num_positions
+%p
+  %b Location description:
+  = @showcase.location_description
+
+= link_to 'Edit', edit_showcase_path(@showcase)
+\|
+= link_to 'Back', showcases_path

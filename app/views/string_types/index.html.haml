@@ -1,0 +1,19 @@
+%h1 Listing string_types
+
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @string_types.each do |string_type|
+    %tr
+      %td= string_type.name
+      %td= link_to 'Show', string_type
+      %td= link_to 'Edit', edit_string_type_path(string_type)
+      %td= link_to 'Destroy', string_type, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New String type', new_string_type_path

@@ -1,0 +1,23 @@
+%h1 Listing showcases
+
+%table
+  %tr
+    %th Name
+    %th Num positions
+    %th Location description
+    %th
+    %th
+    %th
+
+  - @showcases.each do |showcase|
+    %tr
+      %td= showcase.name
+      %td= showcase.num_positions
+      %td= showcase.location_description
+      %td= link_to 'Show', showcase
+      %td= link_to 'Edit', edit_showcase_path(showcase)
+      %td= link_to 'Destroy', showcase, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Showcase', new_showcase_path

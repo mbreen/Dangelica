@@ -1,0 +1,19 @@
+%h1 Listing clasps
+
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @clasps.each do |clasp|
+    %tr
+      %td= clasp.name
+      %td= link_to 'Show', clasp
+      %td= link_to 'Edit', edit_clasp_path(clasp)
+      %td= link_to 'Destroy', clasp, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Clasp', new_clasp_path

@@ -1,0 +1,19 @@
+%h1 Listing beads
+
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @beads.each do |bead|
+    %tr
+      %td= bead.name
+      %td= link_to 'Show', bead
+      %td= link_to 'Edit', edit_bead_path(bead)
+      %td= link_to 'Destroy', bead, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Bead', new_bead_path

@@ -1,0 +1,23 @@
+%h1 Listing model_placements
+
+%table
+  %tr
+    %th Event
+    %th Runway model
+    %th Jewelry item
+    %th
+    %th
+    %th
+
+  - @model_placements.each do |model_placement|
+    %tr
+      %td= model_placement.event
+      %td= model_placement.runway_model
+      %td= model_placement.jewelry_item
+      %td= link_to 'Show', model_placement
+      %td= link_to 'Edit', edit_model_placement_path(model_placement)
+      %td= link_to 'Destroy', model_placement, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Model placement', new_model_placement_path

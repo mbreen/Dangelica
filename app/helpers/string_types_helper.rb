@@ -1,0 +1,2 @@
+module StringTypesHelper
+end

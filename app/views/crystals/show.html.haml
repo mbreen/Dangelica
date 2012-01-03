@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @crystal.name
+
+= link_to 'Edit', edit_crystal_path(@crystal)
+\|
+= link_to 'Back', crystals_path

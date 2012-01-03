@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @runway_model.name
+
+= link_to 'Edit', edit_runway_model_path(@runway_model)
+\|
+= link_to 'Back', runway_models_path

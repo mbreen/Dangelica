@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @string_type.name
+
+= link_to 'Edit', edit_string_type_path(@string_type)
+\|
+= link_to 'Back', string_types_path

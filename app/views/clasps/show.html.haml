@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @clasp.name
+
+= link_to 'Edit', edit_clasp_path(@clasp)
+\|
+= link_to 'Back', clasps_path

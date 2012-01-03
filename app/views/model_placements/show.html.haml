@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Event:
+  = @model_placement.event
+%p
+  %b Runway model:
+  = @model_placement.runway_model
+%p
+  %b Jewelry item:
+  = @model_placement.jewelry_item
+
+= link_to 'Edit', edit_model_placement_path(@model_placement)
+\|
+= link_to 'Back', model_placements_path

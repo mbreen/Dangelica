@@ -1,0 +1,19 @@
+%h1 Listing filler_beads
+
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @filler_beads.each do |filler_bead|
+    %tr
+      %td= filler_bead.name
+      %td= link_to 'Show', filler_bead
+      %td= link_to 'Edit', edit_filler_bead_path(filler_bead)
+      %td= link_to 'Destroy', filler_bead, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Filler bead', new_filler_bead_path

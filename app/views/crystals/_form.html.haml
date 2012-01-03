@@ -1,0 +1,13 @@
+= form_for @crystal do |f|
+  -if @crystal.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@crystal.errors.count, "error")} prohibited this crystal from being saved:"
+      %ul
+        - @crystal.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .actions
+    = f.submit 'Save'

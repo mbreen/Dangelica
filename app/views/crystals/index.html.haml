@@ -1,0 +1,19 @@
+%h1 Listing crystals
+
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @crystals.each do |crystal|
+    %tr
+      %td= crystal.name
+      %td= link_to 'Show', crystal
+      %td= link_to 'Edit', edit_crystal_path(crystal)
+      %td= link_to 'Destroy', crystal, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Crystal', new_crystal_path

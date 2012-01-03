@@ -1,0 +1,19 @@
+%h1 Listing stones
+
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @stones.each do |stone|
+    %tr
+      %td= stone.name
+      %td= link_to 'Show', stone
+      %td= link_to 'Edit', edit_stone_path(stone)
+      %td= link_to 'Destroy', stone, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Stone', new_stone_path

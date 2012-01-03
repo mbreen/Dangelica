@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @stone.name
+
+= link_to 'Edit', edit_stone_path(@stone)
+\|
+= link_to 'Back', stones_path

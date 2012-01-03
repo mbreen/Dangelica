@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @bead.name
+
+= link_to 'Edit', edit_bead_path(@bead)
+\|
+= link_to 'Back', beads_path
