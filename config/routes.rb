@@ -1,4 +1,6 @@
 Dangelica::Application.routes.draw do
+  resources :earring_types
+
   resources :showcase_placements
 
   resources :model_placements

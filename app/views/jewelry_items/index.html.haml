@@ -2,6 +2,7 @@
 
 %table
   %tr
+    %th Photo
     %th Name
     %th Size
     %th Earring type
@@ -15,13 +16,14 @@
 
   - @jewelry_items.each do |jewelry_item|
     %tr
+      %td= image_tag jewelry_item.photo.url(:thumb)
       %td= jewelry_item.name
       %td= jewelry_item.size
-      %td= jewelry_item.earring_type
-      %td= jewelry_item.jewelry_type
+      %td= jewelry_item.earring_type.name
+      %td= jewelry_item.jewelry_type.name
       %td= jewelry_item.price
-      %td= jewelry_item.string_type
-      %td= jewelry_item.clasp
+      %td= jewelry_item.string_type.name
+      %td= jewelry_item.clasp.name
       %td= link_to 'Show', jewelry_item
       %td= link_to 'Edit', edit_jewelry_item_path(jewelry_item)
       %td= link_to 'Destroy', jewelry_item, :confirm => 'Are you sure?', :method => :delete

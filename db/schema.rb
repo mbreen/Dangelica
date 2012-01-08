@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120103043336) do
+ActiveRecord::Schema.define(:version => 20120108000930) do
 
   create_table "beads", :force => true do |t|
     t.string   "name"
@@ -36,6 +36,12 @@ ActiveRecord::Schema.define(:version => 20120103043336) do
   end
 
   create_table "crystals", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "earring_types", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -88,7 +94,6 @@ ActiveRecord::Schema.define(:version => 20120103043336) do
   create_table "jewelry_items", :force => true do |t|
     t.string   "name"
     t.integer  "size"
-    t.string   "earring_type"
     t.integer  "jewelry_type_id"
     t.float    "price"
     t.integer  "string_type_id"
@@ -96,6 +101,11 @@ ActiveRecord::Schema.define(:version => 20120103043336) do
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "earring_type_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "jewelry_items", ["clasp_id"], :name => "index_jewelry_items_on_clasp_id"

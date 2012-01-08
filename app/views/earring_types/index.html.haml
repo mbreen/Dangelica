@@ -1,0 +1,19 @@
+%h1 Listing earring_types
+
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @earring_types.each do |earring_type|
+    %tr
+      %td= earring_type.name
+      %td= link_to 'Show', earring_type
+      %td= link_to 'Edit', edit_earring_type_path(earring_type)
+      %td= link_to 'Destroy', earring_type, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Earring type', new_earring_type_path

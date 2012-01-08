@@ -10,7 +10,8 @@ gem 'mysql2'
 gem 'haml', '>= 3.0.25'
 gem 'haml-rails'
 gem 'simple_form'
-gem 'paperclip'
+#gem "paperclip", "~> 2.0"
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'devise'
 gem 'rspec-rails'
 

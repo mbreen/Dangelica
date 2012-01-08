@@ -14,18 +14,25 @@
     = f.number_field :size
   .field
     = f.label :earring_type
-    = f.text_field :earring_type
+    = f.collection_select(:earring_type_id, @earring_types, :id, :name)
   .field
     = f.label :jewelry_type
-    = f.text_field :jewelry_type
+    = f.collection_select(:jewelry_type_id, @jewelry_types, :id, :name)
   .field
     = f.label :price
     = f.text_field :price
   .field
     = f.label :string_type
-    = f.text_field :string_type
+    = f.collection_select(:string_type_id, @string_types, :id, :name)
   .field
-    = f.label :clasp
-    = f.text_field :clasp
+    = f.label :clasp_type
+    = f.collection_select(:clasp_id, @clasp_types, :id, :name)
+  .field
+    = f.label :description
+    <br/>
+    = f.text_area(:description, :cols => 80, :rows => 10)
+  .field
+    = f.label :photo
+    = f.file_field :photo
   .actions
     = f.submit 'Save'

@@ -1,4 +1,6 @@
 class JewelryItemsController < ApplicationController
+  before_filter :fetch_type_options, :only => [:new, :edit]
+  
   # GET /jewelry_items
   # GET /jewelry_items.json
   def index
@@ -79,5 +81,14 @@ class JewelryItemsController < ApplicationController
       format.html { redirect_to jewelry_items_url }
       format.json { head :ok }
     end
+  end
+  
+  private
+  
+  def fetch_type_options
+    @string_types = StringType.all
+    @jewelry_types = JewelryType.all
+    @earring_types = EarringType.all
+    @clasp_types = Clasp.all
   end
 end

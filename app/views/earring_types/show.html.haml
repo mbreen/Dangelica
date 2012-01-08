@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @earring_type.name
+
+= link_to 'Edit', edit_earring_type_path(@earring_type)
+\|
+= link_to 'Back', earring_types_path

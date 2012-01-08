@@ -1,6 +1,9 @@
 %p#notice= notice
 
 %p
+  %b Photo:
+  = image_tag @jewelry_item.photo.url(:medium)
+%p
   %b Name:
   = @jewelry_item.name
 %p
@@ -8,19 +11,19 @@
   = @jewelry_item.size
 %p
   %b Earring type:
-  = @jewelry_item.earring_type
+  = @jewelry_item.earring_type.name
 %p
   %b Jewelry type:
-  = @jewelry_item.jewelry_type
+  = @jewelry_item.jewelry_type.name
 %p
   %b Price:
   = @jewelry_item.price
 %p
   %b String type:
-  = @jewelry_item.string_type
+  = @jewelry_item.string_type.name
 %p
   %b Clasp:
-  = @jewelry_item.clasp
+  = @jewelry_item.clasp.name
 
 = link_to 'Edit', edit_jewelry_item_path(@jewelry_item)
 \|
