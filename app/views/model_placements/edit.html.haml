@@ -2,6 +2,6 @@
 
 = render 'form'
 
-= link_to 'Show', @model_placement
+= link_to 'Show', event_model_placement_path(@event, @model_placement)
 \|
-= link_to 'Back', model_placements_path
+= link_to 'Back', event_model_placements_path(@event)

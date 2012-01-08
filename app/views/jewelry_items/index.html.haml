@@ -4,6 +4,7 @@
   %tr
     %th Photo
     %th Name
+    %th Collection
     %th Size
     %th Earring type
     %th Jewelry type
@@ -18,6 +19,7 @@
     %tr
       %td= image_tag jewelry_item.photo.url(:thumb)
       %td= jewelry_item.name
+      %td= jewelry_item.collection.name
       %td= jewelry_item.size
       %td= jewelry_item.earring_type.name
       %td= jewelry_item.jewelry_type.name

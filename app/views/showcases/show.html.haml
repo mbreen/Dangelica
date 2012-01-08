@@ -9,6 +9,9 @@
 %p
   %b Location description:
   = @showcase.location_description
+%p
+  %b Diagram:
+  = image_tag @showcase.diagram.url
 
 = link_to 'Edit', edit_showcase_path(@showcase)
 \|

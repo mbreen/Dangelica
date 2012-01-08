@@ -2,14 +2,17 @@
 
 %p
   %b Event:
-  = @model_placement.event
+  = @model_placement.event.name
 %p
   %b Runway model:
-  = @model_placement.runway_model
+  = @model_placement.runway_model.name
 %p
   %b Jewelry item:
-  = @model_placement.jewelry_item
+  = @model_placement.jewelry_item.name
+%p
+  %b Jewelry photo:
+  = image_tag @model_placement.jewelry_item.photo.url(:medium)
 
-= link_to 'Edit', edit_model_placement_path(@model_placement)
+= link_to 'Edit', edit_event_model_placement_path(@event, @model_placement)
 \|
-= link_to 'Back', model_placements_path
+= link_to 'Back', event_model_placements_path(@event)

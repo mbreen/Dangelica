@@ -3,8 +3,6 @@ Dangelica::Application.routes.draw do
 
   resources :showcase_placements
 
-  resources :model_placements
-
   resources :jewelry_items
 
   resources :jewelry_types
@@ -27,7 +25,9 @@ Dangelica::Application.routes.draw do
 
   resources :runway_models
 
-  resources :events
+  resources :events do 
+    resources :model_placements
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

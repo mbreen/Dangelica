@@ -1,4 +1,4 @@
-= form_for @model_placement do |f|
+= form_for @model_placement, :url => (@model_placement.new_record? ? event_model_placements_path(@event) : event_model_placement_path(@event, @model_placement)) do |f|
   -if @model_placement.errors.any?
     #error_explanation
       %h2= "#{pluralize(@model_placement.errors.count, "error")} prohibited this model_placement from being saved:"
@@ -7,13 +7,10 @@
           %li= msg
 
   .field
-    = f.label :event
-    = f.text_field :event
-  .field
     = f.label :runway_model
-    = f.text_field :runway_model
+    = f.collection_select(:runway_model_id, RunwayModel.all, :id, :name)
   .field
     = f.label :jewelry_item
-    = f.text_field :jewelry_item
+    = f.collection_select(:jewelry_item_id, JewelryItem.all, :id, :name)
   .actions
     = f.submit 'Save'

@@ -2,7 +2,8 @@ class ModelPlacementsController < ApplicationController
   # GET /model_placements
   # GET /model_placements.json
   def index
-    @model_placements = ModelPlacement.all
+    @event = Event.find(params[:event_id])
+    @model_placements = @event.model_placements.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,6 +14,7 @@ class ModelPlacementsController < ApplicationController
   # GET /model_placements/1
   # GET /model_placements/1.json
   def show
+    @event = Event.find(params[:event_id])
     @model_placement = ModelPlacement.find(params[:id])
 
     respond_to do |format|
@@ -24,7 +26,8 @@ class ModelPlacementsController < ApplicationController
   # GET /model_placements/new
   # GET /model_placements/new.json
   def new
-    @model_placement = ModelPlacement.new
+    @event = Event.find(params[:event_id])
+    @model_placement = @event.model_placements.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,17 +37,19 @@ class ModelPlacementsController < ApplicationController
 
   # GET /model_placements/1/edit
   def edit
+    @event = Event.find(params[:event_id])
     @model_placement = ModelPlacement.find(params[:id])
   end
 
   # POST /model_placements
   # POST /model_placements.json
   def create
-    @model_placement = ModelPlacement.new(params[:model_placement])
+    @event = Event.find(params[:event_id])
+    @model_placement = @event.model_placements.new(params[:model_placement])
 
     respond_to do |format|
       if @model_placement.save
-        format.html { redirect_to @model_placement, notice: 'Model placement was successfully created.' }
+        format.html { redirect_to event_model_placements_path(@event), notice: 'Model placement was successfully created.' }
         format.json { render json: @model_placement, status: :created, location: @model_placement }
       else
         format.html { render action: "new" }
@@ -56,6 +61,7 @@ class ModelPlacementsController < ApplicationController
   # PUT /model_placements/1
   # PUT /model_placements/1.json
   def update
+    @event = Event.find(params[:event_id])
     @model_placement = ModelPlacement.find(params[:id])
 
     respond_to do |format|
@@ -72,6 +78,7 @@ class ModelPlacementsController < ApplicationController
   # DELETE /model_placements/1
   # DELETE /model_placements/1.json
   def destroy
+    @event = Event.find(params[:event_id])
     @model_placement = ModelPlacement.find(params[:id])
     @model_placement.destroy
 
