@@ -17,7 +17,7 @@
 
   - @jewelry_items.each do |jewelry_item|
     %tr
-      %td= image_tag jewelry_item.photo.url(:thumb)
+      %td= image_tag jewelry_item.photo.url(:thumb) if jewelry_item.photo?
       %td= jewelry_item.name
       %td= jewelry_item.collection.name
       %td= jewelry_item.size

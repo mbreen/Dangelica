@@ -1,3 +1,16 @@
+%script
+  add_jewelry_element = function(element_type) {
+  var id = $('.' + element_type +'_select').val(); 
+  var text = $('.' + element_type + '_select option[value=' + id + ']').text();
+  //alert('element_type: ' + element_type + ' id: ' + id + ' text: ' + text);
+  var onclick_func = "$('li." + element_type + "_list#" + id + "').remove(); return false;"
+  var new_li = "<li class=" + element_type + "_list id=" + id + ">" + text + " <a href='#' onclick=\"" + onclick_func + "\">Delete</a>";
+  var new_hidden_input = "<input name='jewelry_item[" + element_type + "_id_list][]' type=hidden value=" + id + "></li>"
+  $('span.no_' + element_type + 's').remove();
+  $('ul.' + element_type + '_list').append(new_li + new_hidden_input);
+  //$(new_hidden_input).insertAfter('li.' + element_type + '_list#' + id);
+  return false;
+  }
 = form_for @jewelry_item do |f|
   -if @jewelry_item.errors.any?
     #error_explanation
@@ -30,6 +43,75 @@
   .field
     = f.label :clasp_type
     = f.collection_select(:clasp_id, @clasp_types, :id, :name)
+  .field
+    = f.label :stones
+    - if @jewelry_item.stones.blank?
+      <br/>
+      %ul{:class => :stone_list}
+      %span.no_stones
+        There are no stones on this jewelry item
+    - else
+      %ul{:class => :stone_list}
+        - @jewelry_item.stones.each do |stone| 
+          %li{:class => :stone_list, :id => stone.id.to_s}
+            = stone.name
+            = link_to_function "Delete", "$('li.stone_list##{stone.id.to_s}').remove()"
+            = hidden_field_tag 'jewelry_item[stone_id_list][]', stone.id.to_s, {:class => 'stone_list_input', :id => stone.id}
+    <br/>
+    = collection_select(:stone, :type, Stone.all, :id, :name, {}, :class => :stone_select)
+    = link_to_function "Add", "add_jewelry_element('stone')"
+  .field
+    = f.label :beads
+    - if @jewelry_item.beads.blank?
+      <br/>
+      %ul{:class => :bead_list}
+      %span.no_beads
+        There are no beads on this jewelry item
+    - else
+      %ul{:class => :bead_list}
+        - @jewelry_item.beads.each do |bead| 
+          %li{:class => :bead_list, :id => bead.id.to_s}
+            = bead.name
+            = link_to_function "Delete", "$('li.bead_list##{bead.id.to_s}').remove()"
+            = hidden_field_tag 'jewelry_item[bead_id_list][]', bead.id.to_s, {:class => 'bead_list_input', :id => bead.id}
+    <br/>
+    = collection_select(:bead, :type, Bead.all, :id, :name, {}, :class => :bead_select)
+    = link_to_function "Add", "add_jewelry_element('bead')"
+  .field
+    = f.label :crystals
+    - if @jewelry_item.crystals.blank?
+      <br/>
+      %ul{:class => :crystal_list}
+      %span.no_crystals
+        There are no crystals on this jewelry item
+    - else
+      %ul{:class => :crystal_list}
+        - @jewelry_item.crystals.each do |crystal| 
+          %li{:class => :crystal_list, :id => crystal.id.to_s}
+            = crystal.name
+            = link_to_function "Delete", "$('li.crystal_list##{crystal.id.to_s}').remove()"
+            = hidden_field_tag 'jewelry_item[crystal_id_list][]', crystal.id.to_s, {:class => 'crystal_list_input', :id => crystal.id}
+    <br/>
+    = collection_select(:crystal, :type, Crystal.all, :id, :name, {}, :class => :crystal_select)
+    = link_to_function "Add", "add_jewelry_element('crystal')"
+  .field
+    = f.label :filler_beads
+    - if @jewelry_item.filler_beads.blank?
+      <br/>
+      %ul{:class => :filler_bead_list}
+      %span.no_filler_beads
+        There are no filler beads on this jewelry item
+    - else
+      %ul{:class => :filler_bead_list}
+        - @jewelry_item.filler_beads.each do |filler_bead| 
+          %li{:class => :filler_bead_list, :id => filler_bead.id.to_s}
+            = filler_bead.name
+            = link_to_function "Delete", "$('li.filler_bead_list##{filler_bead.id.to_s}').remove()"
+            = hidden_field_tag 'jewelry_item[filler_bead_id_list][]', filler_bead.id.to_s, {:class => 'filler_bead_list_input', :id => filler_bead.id}
+    <br/>
+    = collection_select(:filler_bead, :type, FillerBead.all, :id, :name, {}, :class => :filler_bead_select)
+    = link_to_function "Add", "add_jewelry_element('filler_bead')"
+
   .field
     = f.label :description
     <br/>

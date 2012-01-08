@@ -59,6 +59,10 @@ class JewelryItemsController < ApplicationController
   # PUT /jewelry_items/1.json
   def update
     @jewelry_item = JewelryItem.find(params[:id])
+    @jewelry_item.jewelry_beads.each { |jb| jb.destroy }
+    @jewelry_item.jewelry_stones.each { |js| js.destroy }
+    @jewelry_item.jewelry_crystals.each { |jc| jc.destroy }
+    @jewelry_item.jewelry_filler_beads.each { |jfb| jfb.destroy }
 
     respond_to do |format|
       if @jewelry_item.update_attributes(params[:jewelry_item])

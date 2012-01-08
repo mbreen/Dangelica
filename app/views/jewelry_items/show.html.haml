@@ -2,7 +2,7 @@
 
 %p
   %b Photo:
-  = image_tag @jewelry_item.photo.url(:medium)
+  = image_tag @jewelry_item.photo.url(:medium) if @jewelry_item.photo?
 %p
   %b Name:
   = @jewelry_item.name

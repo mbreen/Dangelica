@@ -83,12 +83,11 @@ ActiveRecord::Schema.define(:version => 20120108032713) do
 
   create_table "jewelry_filler_beads", :force => true do |t|
     t.integer  "jewelry_item_id"
-    t.integer  "filler_beads_id"
+    t.integer  "filler_bead_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "jewelry_filler_beads", ["filler_beads_id"], :name => "index_jewelry_filler_beads_on_filler_beads_id"
   add_index "jewelry_filler_beads", ["jewelry_item_id"], :name => "index_jewelry_filler_beads_on_jewelry_item_id"
 
   create_table "jewelry_items", :force => true do |t|
