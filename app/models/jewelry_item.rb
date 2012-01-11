@@ -8,6 +8,9 @@ class JewelryItem < ActiveRecord::Base
   belongs_to :earring_type
   belongs_to :collection
   
+  has_many :showcase_placements
+  has_many :showcases, :through => :showcase_placements
+  
   has_many :jewelry_stones
   has_many :stones, :through => :jewelry_stones
   has_many :jewelry_crystals

@@ -1,8 +1,6 @@
 Dangelica::Application.routes.draw do
   resources :earring_types
 
-  resources :showcase_placements
-
   resources :jewelry_items
 
   resources :jewelry_types
@@ -19,7 +17,9 @@ Dangelica::Application.routes.draw do
 
   resources :stones
 
-  resources :showcases
+  resources :showcases do 
+    resources :showcase_placements
+  end
 
   resources :collections
 

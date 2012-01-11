@@ -1,4 +1,4 @@
-= form_for @showcase_placement do |f|
+= form_for @showcase_placement, :url => @showcase_placement.new_record? ? showcase_showcase_placements_path(@showcase) : showcase_showcase_placement_path(@showcase, @showcase_placement) do |f|
   -if @showcase_placement.errors.any?
     #error_explanation
       %h2= "#{pluralize(@showcase_placement.errors.count, "error")} prohibited this showcase_placement from being saved:"
@@ -13,10 +13,7 @@
     = f.label :end_date
     = f.date_select :end_date
   .field
-    = f.label :showcase
-    = f.text_field :showcase
-  .field
     = f.label :jewelry_item
-    = f.text_field :jewelry_item
+    = f.collection_select(:jewelry_item_id, JewelryItem.all, :id, :name)
   .actions
     = f.submit 'Save'

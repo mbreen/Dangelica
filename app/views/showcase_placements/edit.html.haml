@@ -2,6 +2,6 @@
 
 = render 'form'
 
-= link_to 'Show', @showcase_placement
+= link_to 'Show', showcase_showcase_placement_path(@showcase, @showcase_placement)
 \|
-= link_to 'Back', showcase_placements_path
+= link_to 'Back', showcase_showcase_placements_path(@showcase)

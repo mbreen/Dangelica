@@ -14,12 +14,12 @@
     %tr
       %td= showcase_placement.start_date
       %td= showcase_placement.end_date
-      %td= showcase_placement.showcase
-      %td= showcase_placement.jewelry_item
-      %td= link_to 'Show', showcase_placement
-      %td= link_to 'Edit', edit_showcase_placement_path(showcase_placement)
-      %td= link_to 'Destroy', showcase_placement, :confirm => 'Are you sure?', :method => :delete
+      %td= showcase_placement.showcase.name
+      %td= showcase_placement.jewelry_item.name
+      %td= link_to 'Show', showcase_showcase_placement_path(@showcase, showcase_placement)
+      %td= link_to 'Edit', edit_showcase_showcase_placement_path(@showcase, showcase_placement)
+      %td= link_to 'Destroy', showcase_showcase_placement_path(@showcase, showcase_placement), :confirm => 'Are you sure?', :method => :delete
 
 %br
 
-= link_to 'New Showcase placement', new_showcase_placement_path
+= link_to 'New Showcase placement', new_showcase_showcase_placement_path(@showcase)

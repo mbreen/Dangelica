@@ -8,11 +8,11 @@
   = @showcase_placement.end_date
 %p
   %b Showcase:
-  = @showcase_placement.showcase
+  = @showcase_placement.showcase.name
 %p
   %b Jewelry item:
-  = @showcase_placement.jewelry_item
+  = @showcase_placement.jewelry_item.name
 
-= link_to 'Edit', edit_showcase_placement_path(@showcase_placement)
+= link_to 'Edit', edit_showcase_showcase_placement_path(@showcase, @showcase_placement)
 \|
-= link_to 'Back', showcase_placements_path
+= link_to 'Back', showcase_showcase_placements_path(@showcase)
