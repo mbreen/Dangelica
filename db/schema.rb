@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(:version => 20120108032713) do
     t.datetime "updated_at"
   end
 
+  add_index "jewelry_filler_beads", ["filler_bead_id"], :name => "index_jewelry_filler_beads_on_filler_bead_id"
   add_index "jewelry_filler_beads", ["jewelry_item_id"], :name => "index_jewelry_filler_beads_on_jewelry_item_id"
 
   create_table "jewelry_items", :force => true do |t|

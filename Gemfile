@@ -12,6 +12,7 @@ gem 'haml-rails'
 gem 'simple_form'
 #gem "paperclip", "~> 2.0"
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+#gem "paperclip", '2.4.5'
 gem 'devise'
 gem 'rspec-rails'
 
@@ -37,3 +38,6 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
+gem 'execjs'
+
+gem 'therubyracer'
